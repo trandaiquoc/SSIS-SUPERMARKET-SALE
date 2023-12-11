@@ -18,6 +18,12 @@ GO
 CREATE DATABASE NDS
 GO
 
+IF DB_ID ('DDS') IS NOT NULL
+	DROP DATABASE DDS
+GO
+CREATE DATABASE DDS
+GO
+
 USE METADATA
 GO
 
@@ -150,4 +156,125 @@ CREATE TABLE [supermarket_sales_NDS] (
     [cogs] float,
     [Rating] float
 )
+GO
+
+USE DDS
+GO
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_City]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_City
+GO
+CREATE TABLE Dim_City (
+	C_SK int NOT NULL,
+    Branch nvarchar(255) NOT NULL,
+    City nvarchar(255),
+	[Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_ProductLine]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_ProductLine
+GO
+CREATE TABLE Dim_ProductLine (
+	PL_SK int NOT NULL,
+    [Product line] nvarchar(255),
+    [ProductLineID] nvarchar(255),
+	[Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Product]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Product
+GO
+CREATE TABLE Dim_Product (
+	P_SK int NOT NULL,
+    [ProductID] nvarchar(255) NOT NULL,
+    [Unit price] float,
+    [ProductLine] nvarchar(255),
+	[Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Year]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Year
+GO
+CREATE TABLE Dim_Year (
+  YearID int IDENTITY(1, 1) NOT NULL,
+  Nam int,
+  [Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Month]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Month
+GO
+CREATE TABLE Dim_Month (
+  MonthID int IDENTITY(1, 1) NOT NULL,
+  Thang int,
+  YearID int,
+  [Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Day]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Day
+GO
+CREATE TABLE Dim_Day (
+  DayID int IDENTITY(1, 1) NOT NULL,
+  Ngay int,
+  MonthID int,
+  [Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Hour]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Hour
+GO
+CREATE TABLE Dim_Hour (
+  HourID int IDENTITY(1, 1) NOT NULL,
+  Gio int,
+  DayID int,
+  [Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Fact_supermarket_sales]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Fact_supermarket_sales
+GO
+CREATE TABLE Fact_supermarket_sales (
+	SS_SK int NOT NULL,
+    [Invoice ID] nvarchar(255) NOT NULL,
+    [Branch] nvarchar(255) NOT NULL,
+	[ProductID] nvarchar(255) NOT NULL,
+	[HourID] int NOT NULL,
+    [Customer type] nvarchar(255),
+    [Gender] nvarchar(255),
+    [Quantity] float,
+    [Tax 5%] float,
+    [Total] float,
+    [Payment] nvarchar(255),
+    [cogs] float,
+    [Rating] float,
+	[Status] int
+)
+GO
+
+USE METADATA
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DATA_FLOW_NDS]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].DATA_FLOW_NDS
+GO
+CREATE TABLE DATA_FLOW_NDS
+(
+	TABLE_NAME VARCHAR(100),
+	CET DATETIME,
+	LSET DATETIME
+
+	CONSTRAINT PK_DFNDS PRIMARY KEY (TABLE_NAME)
+)
+
+INSERT INTO DATA_FLOW_NDS VALUES 
+('supermarket_sales_NDS', NULL, '01/01/1970'),
+('product_NDS', NULL, '01/01/1970'),
+('ProductLine_NDS', NULL, '01/01/1970'),
+('city_NDS', NULL, '01/01/1970')
 GO
