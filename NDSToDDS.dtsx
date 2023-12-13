@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{8A49B270-15E6-4DF3-AF22-74EFC3F017B8}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{B10BC85B-BD04-45D9-A95F-FEFC43288136}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -238,6 +238,1034 @@
       DTS:ObjectName="Sequence Container">
       <DTS:Variables />
       <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\DELETE DIM_TIME"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6407D6BE-29A0-43AC-BFDE-EB1B57973E9C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DELETE DIM_TIME"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{189F7BC5-2710-46E6-B2A0-240005FFE1A5}"
+              SQLTask:SqlStatementSource="DELETE FROM DBO.Dim_Time" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\EXECUTE INSERT DIM_TIME"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2DC0F40E-C9DF-428F-921D-DDB853CCD856}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXECUTE INSERT DIM_TIME"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{189F7BC5-2710-46E6-B2A0-240005FFE1A5}"
+              SQLTask:SqlStatementSource="EXEC DBO.InsertTime" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\FACT SUPERMARKET SALES"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DCC4A3C3-65E6-4981-AD95-46A665D51A1D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FACT SUPERMARKET SALES"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="FACT"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Fact_supermarket_sales]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.DDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[SS_SK]"
+                          cachedDataType="i4"
+                          cachedName="SS_SK"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[SS_SK]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[SS_SK]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Invoice ID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Invoice ID"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Invoice ID]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Invoice ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Branch]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Branch"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Branch]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Customer type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Customer type"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Customer type]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Customer type]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                          cachedDataType="r8"
+                          cachedName="Quantity"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Tax 5%]"
+                          cachedDataType="r8"
+                          cachedName="Tax 5%"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Tax 5%]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Tax 5%]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Total]"
+                          cachedDataType="r8"
+                          cachedName="Total"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Total]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Payment]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Payment"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Payment]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[cogs]"
+                          cachedDataType="r8"
+                          cachedName="cogs"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[cogs]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[cogs]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[Rating]"
+                          cachedDataType="r8"
+                          cachedName="Rating"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Rating]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[MaThoiGian]"
+                          cachedDataType="i4"
+                          cachedName="MaThoiGian"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[HourID]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[SS_SK]"
+                          dataType="i4"
+                          name="SS_SK" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Invoice ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="Invoice ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                          dataType="wstr"
+                          length="255"
+                          name="Branch" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          dataType="wstr"
+                          length="255"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[HourID]"
+                          dataType="i4"
+                          name="HourID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Customer type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Customer type" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                          dataType="r8"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Tax 5%]"
+                          dataType="r8"
+                          name="Tax 5%" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                          dataType="r8"
+                          name="Total" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                          dataType="wstr"
+                          length="255"
+                          name="Payment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[cogs]"
+                          dataType="r8"
+                          name="cogs" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                          dataType="r8"
+                          name="Rating" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="i4"
+                          name="Status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="LAY HOURID"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Time]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Time]) [refTable]
+where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? and [refTable].[Gio] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TimeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Gio" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ngay" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Thang" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nam" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[DAY]};#{Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[MONTH]};#{Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[YEAR]};#{Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[HOUR]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.DDS]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[YEAR]"
+                          cachedDataType="i4"
+                          cachedName="YEAR"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[YEAR]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Nam</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[MONTH]"
+                          cachedDataType="i4"
+                          cachedName="MONTH"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[MONTH]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Thang</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[HOUR]"
+                          cachedDataType="i4"
+                          cachedName="HOUR"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[HOUR]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Gio</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[DAY]"
+                          cachedDataType="i4"
+                          cachedName="DAY"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[DAY]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Ngay</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]"
+                          name="MaThoiGian"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">TimeID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SUPERMARKET SALE NDS"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[supermarket_sales_NDS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SS_SK], [Invoice ID], [Branch], [ProductID], [CreateDate] 
+FROM [supermarket_sales_NDS]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[SS_SK]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[SS_SK]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[SS_SK]"
+                          name="SS_SK"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Invoice ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Invoice ID]"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Invoice ID]"
+                          name="Invoice ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Branch]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Branch]"
+                          name="Branch"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          name="ProductID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                          name="CreateDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Customer type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Customer type]"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Customer type]"
+                          name="Customer type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Quantity]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Quantity]"
+                          name="Quantity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Tax 5%]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Tax 5%]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Tax 5%]"
+                          name="Tax 5%"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Total]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Total]"
+                          name="Total"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                          name="UpdateDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Payment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Payment]"
+                          name="Payment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[cogs]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[cogs]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[cogs]"
+                          name="cogs"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Rating]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[Rating]"
+                          name="Rating"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[SS_SK]"
+                          dataType="i4"
+                          name="SS_SK" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Invoice ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="Invoice ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                          dataType="wstr"
+                          length="255"
+                          name="Branch" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          dataType="wstr"
+                          length="255"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                          dataType="dbTimeStamp"
+                          name="CreateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Customer type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Customer type" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                          dataType="r8"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Tax 5%]"
+                          dataType="r8"
+                          name="Tax 5%" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                          dataType="r8"
+                          name="Total" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          name="UpdateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
+                          dataType="wstr"
+                          length="255"
+                          name="Payment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[cogs]"
+                          dataType="r8"
+                          name="cogs" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                          dataType="r8"
+                          name="Rating" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[SS_SK]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[SS_SK]"
+                          name="SS_SK" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Invoice ID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Invoice ID]"
+                          name="Invoice ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                          name="Branch" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Customer type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Customer type]"
+                          name="Customer type" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                          name="Gender" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          name="ProductID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                          name="Quantity" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Tax 5%]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Tax 5%]"
+                          name="Tax 5%" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Total]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Total]"
+                          name="Total" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                          name="CreateDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                          name="UpdateDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Payment]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Payment]"
+                          name="Payment" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[cogs]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[cogs]"
+                          name="cogs" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                          name="Rating" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="TACH NGAY THANG NAM"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Inputs[Derived Column Input].Columns[CreateDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CreateDate"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[DAY]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[DAY]"
+                          name="DAY"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[DATEPART]("dd",#{Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">DATEPART("dd",CreateDate)</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[MONTH]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[MONTH]"
+                          name="MONTH"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[DATEPART]("mm",#{Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">DATEPART("mm",CreateDate)</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[YEAR]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[YEAR]"
+                          name="YEAR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[DATEPART]("yyyy",#{Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">DATEPART("yyyy",CreateDate)</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[HOUR]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[HOUR]"
+                          name="HOUR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[DATEPART]("hh",#{Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output].Columns[CreateDate]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">DATEPART("hh",CreateDate)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Lookup Match Output]"
+                  endId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Sequence Container\HANDLE DIM CITY"
           DTS:CreationName="Microsoft.Pipeline"
@@ -4215,6 +5243,30 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Sequence Container\HANDLE DIM PRODUCT" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{B5AAAC2C-3250-4AAC-A0E6-77ED88D4C189}"
+          DTS:From="Package\Sequence Container\HANDLE DIM PRODUCT"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\DELETE DIM_TIME" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{E0A8AFE6-6EA0-4330-8BC4-108CE81BF85D}"
+          DTS:From="Package\Sequence Container\DELETE DIM_TIME"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container\EXECUTE INSERT DIM_TIME" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{5C20CBB3-1D0D-4B67-9A7C-B7819F27CC38}"
+          DTS:From="Package\Sequence Container\EXECUTE INSERT DIM_TIME"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Sequence Container\FACT SUPERMARKET SALES" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -4285,6 +5337,23 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           SQLTask:SqlStatementSource="UPDATE DATA_FLOW_NDS SET CET = GETDATE()&#xA; WHERE TABLE_NAME = 'supermarket_sales_NDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SET LSET BANG CET"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2b7ec937-4558-44e4-a352-4a576ba6d1dc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SET LSET BANG CET"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F54C71DB-FFEC-46C7-B106-CBCE7FA0A49A}"
+          SQLTask:SqlStatementSource="update DATA_FLOW_NDS set LSET  = CET" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -4351,6 +5420,14 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{5994CE40-8D64-45CB-BFCF-AA762BC256B6}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\SET LSET BANG CET" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -4381,27 +5458,35 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           Id="Package\GET CET,LSET supermarket_sales"
           TopLeft="283.53741544184,165.979832196103" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="224,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES"
+          TopLeft="119.055534626323,497.599996167025" />
+        <NodeLayout
+          Size="168.8,41.6"
           Id="Package\Sequence Container\HANDLE DIM CITY"
           TopLeft="134.000001639128,22.1882348798758" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT"
+          TopLeft="127.642858089385,212.835293856232" />
         <NodeLayout
           Size="216,41.6"
           Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE"
           TopLeft="116.607143786565,109.86470554553" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="220.903572712846,63.7882348798758">
+          TopLeft="221.503572712847,63.7882348798758">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.0764706656541"
+              EndConnector="0,46.0764706656542"
               Start="0,0"
-              End="0,38.5764706656541">
+              End="0,38.5764706656542">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.5764706656541" />
+                    End="0,38.5764706656542" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4410,10 +5495,6 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT"
-          TopLeft="127.642858089385,212.835293856232" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="223.725000937975,151.46470554553">
@@ -4436,11 +5517,85 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Sequence Container\DELETE DIM_TIME"
+          TopLeft="137.611068842865,305.822219791457" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="223.026963466125,254.435293856232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.3869259352249"
+              Start="0,0"
+              End="0,43.8869259352249">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.8869259352249" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Sequence Container\EXECUTE INSERT DIM_TIME"
+          TopLeft="119.555514273822,398.044441390921" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="226.583291558344,347.422219791457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.6222215994638"
+              Start="0,0"
+              End="0,43.1222215994638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.1222215994638" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="230.505524450073,439.644441390921">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.9555547761041"
+              Start="0,0"
+              End="0,50.4555547761041">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.4555547761041" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="455.2,320"
-          Size="455.2,363.2"
+          PanelSize="455.2,592.8"
+          Size="455.2,636"
           Id="Package\Sequence Container"
           TopLeft="635.942857924408,407.277310576391" />
         <NodeLayout
@@ -4671,214 +5826,168 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\SET LSET BANG CET"
+          TopLeft="764.092944740998,1089.49953247719" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="859.617901332703,1043.27731057639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.2222219007986"
+              Start="0,0"
+              End="0,38.7222219007986">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.7222219007986" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS"
+          TopLeft="184.999989892046,70.199999511838" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM"
+          TopLeft="196.29628557114,199.333331947194" />
+        <EdgeLayout
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[OLE DB Source Output]"
+          TopLeft="294.648137731593,111.799999511838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87.5333324353563"
+              Start="0,0"
+              End="0,80.0333324353563">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.0333324353563" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID"
+          TopLeft="230.555542958556,311.037034874124" />
+        <EdgeLayout
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Derived Column Output]"
+          TopLeft="299.825914264848,240.933331947194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.10370292693"
+              Start="0,0"
+              End="0,62.60370292693">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.60370292693" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="105.6,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\FACT"
+          TopLeft="252.083319560108,419.249997084588" />
+        <EdgeLayout
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Lookup Match Output]"
+          TopLeft="303.119431259332,352.637034874124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.6129622104635"
+              Start="0,0"
+              End="0,59.1129622104635">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.1129622104635" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,23.7517936052318,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Sequence Container\HANDLE DIM CITY">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\Sequence Container\HANDLE DIM CITY\CITY NDS"
-          TopLeft="168.5,5.49999999999995" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Sequence Container\HANDLE DIM CITY\Slowly Changing Dimension"
-          TopLeft="126.9,107.1" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[OLE DB Source Output]"
-          TopLeft="230.9,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM CITY\Insert Destination"
+          TopLeft="149.7,615.099999999999" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Sequence Container\HANDLE DIM CITY\Derived Column"
           TopLeft="17.5,208.7" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Historical Attribute Inserts Output]"
-          TopLeft="170.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-77,60"
-              Start="0,0"
-              End="-77,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8378378378378"
-                    Point2="0,17.8378378378378"
-                    Point3="-4,17.8378378378378" />
-                  <mssgle:LineSegment
-                    End="-73,17.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-73,17.8378378378378"
-                    Point2="-77,17.8378378378378"
-                    Point3="-77,21.8378378378378" />
-                  <mssgle:LineSegment
-                    End="-77,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-113.55638671875,22.8378378378378,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Sequence Container\HANDLE DIM CITY\Slowly Changing Dimension"
+          TopLeft="126.9,107.1" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM CITY\OLE DB Command 2"
+          TopLeft="526.7,208.7" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Sequence Container\HANDLE DIM CITY\OLE DB Command"
           TopLeft="5.49999999999997,310.3" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Derived Column Output]"
-          TopLeft="90.9,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\Sequence Container\HANDLE DIM CITY\Union All"
-          TopLeft="170.9,411.9" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[New Output]"
-          TopLeft="210.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.6666666666667,263.2"
-              Start="0,0"
-              End="38.6666666666667,255.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,138.046830382638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,138.046830382638"
-                    Point2="0,142.046830382638"
-                    Point3="4,142.046830382638" />
-                  <mssgle:LineSegment
-                    End="34.6666666666667,142.046830382638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.6666666666667,142.046830382638"
-                    Point2="38.6666666666667,142.046830382638"
-                    Point3="38.6666666666667,146.046830382638" />
-                  <mssgle:LineSegment
-                    End="38.6666666666667,255.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-7.75805338541667,147.046830382638,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[OLE DB Command Output]"
-          TopLeft="87.9,351.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124.333333333333,59.9999999999998"
-              Start="0,0"
-              End="124.333333333333,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5263157894736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5263157894736"
-                    Point2="0,35.5263157894736"
-                    Point3="4,35.5263157894736" />
-                  <mssgle:LineSegment
-                    End="120.333333333333,35.5263157894736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120.333333333333,35.5263157894736"
-                    Point2="124.333333333333,35.5263157894736"
-                    Point3="124.333333333333,39.5263157894736" />
-                  <mssgle:LineSegment
-                    End="124.333333333333,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM CITY\OLE DB Command 1"
+          TopLeft="291.7,208.7" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Sequence Container\HANDLE DIM CITY\Derived Column 1"
           TopLeft="149.7,513.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Union All Output 1]"
-          TopLeft="230.9,453.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM CITY\Insert Destination"
-          TopLeft="149.7,615.099999999999" />
+          Size="124.8,41.6"
+          Id="Package\Sequence Container\HANDLE DIM CITY\CITY NDS"
+          TopLeft="168.5,5.49999999999995" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Sequence Container\HANDLE DIM CITY\Union All"
+          TopLeft="170.9,411.9" />
         <EdgeLayout
           Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Derived Column Output1]"
           TopLeft="230.9,555.1">
@@ -4901,50 +6010,28 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM CITY\OLE DB Command 1"
-          TopLeft="291.7,208.7" />
         <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Inferred Member Updates Output]"
-          TopLeft="250.9,148.7">
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Derived Column Output]"
+          TopLeft="90.9,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="128,59.9999999999999"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="128,52.4999999999999">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.8085106382978" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8085106382978"
-                    Point2="0,26.8085106382978"
-                    Point3="4,26.8085106382978" />
-                  <mssgle:LineSegment
-                    End="124,26.8085106382978" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124,26.8085106382978"
-                    Point2="128,26.8085106382978"
-                    Point3="128,30.8085106382978" />
-                  <mssgle:LineSegment
-                    End="128,52.4999999999999" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-10.40298828125,31.8085106382978,148.8059765625,11.658203125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM CITY\OLE DB Command 2"
-          TopLeft="526.7,208.7" />
         <EdgeLayout
           Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Changing Attribute Updates Output]"
           TopLeft="290.9,148.7">
@@ -4981,17 +6068,195 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Union All Output 1]"
+          TopLeft="230.9,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[OLE DB Source Output]"
+          TopLeft="230.9,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[OLE DB Command Output]"
+          TopLeft="87.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999998"
+              Start="0,0"
+              End="124.333333333333,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[New Output]"
+          TopLeft="210.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6666666666667,263.2"
+              Start="0,0"
+              End="38.6666666666667,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,138.046830382638" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,138.046830382638"
+                    Point2="0,142.046830382638"
+                    Point3="4,142.046830382638" />
+                  <mssgle:LineSegment
+                    End="34.6666666666667,142.046830382638" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6666666666667,142.046830382638"
+                    Point2="38.6666666666667,142.046830382638"
+                    Point3="38.6666666666667,146.046830382638" />
+                  <mssgle:LineSegment
+                    End="38.6666666666667,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.75805338541665,147.046830382638,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Inferred Member Updates Output]"
+          TopLeft="250.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128,59.9999999999999"
+              Start="0,0"
+              End="128,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8085106382978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8085106382978"
+                    Point2="0,26.8085106382978"
+                    Point3="4,26.8085106382978" />
+                  <mssgle:LineSegment
+                    End="124,26.8085106382978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124,26.8085106382978"
+                    Point2="128,26.8085106382978"
+                    Point3="128,30.8085106382978" />
+                  <mssgle:LineSegment
+                    End="128,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.40298828125,31.8085106382978,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM CITY.Paths[Historical Attribute Inserts Output]"
+          TopLeft="170.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77,60"
+              Start="0,0"
+              End="-77,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8378378378378"
+                    Point2="0,17.8378378378378"
+                    Point3="-4,17.8378378378378" />
+                  <mssgle:LineSegment
+                    End="-73,17.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73,17.8378378378378"
+                    Point2="-77,17.8378378378378"
+                    Point3="-77,21.8378378378378" />
+                  <mssgle:LineSegment
+                    End="-77,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.55638671875,22.8378378378378,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\HANDLE DIM CITY\CITY NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\HANDLE DIM CITY\Slowly Changing Dimension">
     <Properties>
@@ -5046,375 +6311,11 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Sequence Container\HANDLE DIM PRODUCT LINE">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\PRODUCTLINE NDS"
-          TopLeft="145.3,5.49999999999995" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Slowly Changing Dimension"
-          TopLeft="126.9,107.1" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[OLE DB Source Output]"
-          TopLeft="230.9,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Derived Column"
-          TopLeft="17.5,208.7" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Historical Attribute Inserts Output]"
-          TopLeft="170.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-77,60"
-              Start="0,0"
-              End="-77,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8378378378378"
-                    Point2="0,17.8378378378378"
-                    Point3="-4,17.8378378378378" />
-                  <mssgle:LineSegment
-                    End="-73,17.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-73,17.8378378378378"
-                    Point2="-77,17.8378378378378"
-                    Point3="-77,21.8378378378378" />
-                  <mssgle:LineSegment
-                    End="-77,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-113.55638671875,22.8378378378378,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\OLE DB Command"
-          TopLeft="5.49999999999997,310.3" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Derived Column Output]"
-          TopLeft="90.9,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Union All"
-          TopLeft="170.9,411.9" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[New Output]"
-          TopLeft="210.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.6666666666667,263.2"
-              Start="0,0"
-              End="38.6666666666667,255.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,138.046830382638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,138.046830382638"
-                    Point2="0,142.046830382638"
-                    Point3="4,142.046830382638" />
-                  <mssgle:LineSegment
-                    End="34.6666666666667,142.046830382638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.6666666666667,142.046830382638"
-                    Point2="38.6666666666667,142.046830382638"
-                    Point3="38.6666666666667,146.046830382638" />
-                  <mssgle:LineSegment
-                    End="38.6666666666667,255.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-7.75805338541667,147.046830382638,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[OLE DB Command Output]"
-          TopLeft="87.9,351.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124.333333333333,59.9999999999998"
-              Start="0,0"
-              End="124.333333333333,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5263157894736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5263157894736"
-                    Point2="0,35.5263157894736"
-                    Point3="4,35.5263157894736" />
-                  <mssgle:LineSegment
-                    End="120.333333333333,35.5263157894736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120.333333333333,35.5263157894736"
-                    Point2="124.333333333333,35.5263157894736"
-                    Point3="124.333333333333,39.5263157894736" />
-                  <mssgle:LineSegment
-                    End="124.333333333333,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Derived Column 1"
-          TopLeft="149.7,513.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Union All Output 1]"
-          TopLeft="230.9,453.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Insert Destination"
-          TopLeft="149.7,615.099999999999" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Derived Column Output1]"
-          TopLeft="230.9,555.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\OLE DB Command 1"
-          TopLeft="291.7,208.7" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Inferred Member Updates Output]"
-          TopLeft="250.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128,59.9999999999999"
-              Start="0,0"
-              End="128,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.8085106382978" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8085106382978"
-                    Point2="0,26.8085106382978"
-                    Point3="4,26.8085106382978" />
-                  <mssgle:LineSegment
-                    End="124,26.8085106382978" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124,26.8085106382978"
-                    Point2="128,26.8085106382978"
-                    Point3="128,30.8085106382978" />
-                  <mssgle:LineSegment
-                    End="128,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-10.40298828125,31.8085106382978,148.8059765625,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\OLE DB Command 2"
-          TopLeft="526.7,208.7" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Changing Attribute Updates Output]"
-          TopLeft="290.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="323,59.9999999999999"
-              Start="0,0"
-              End="323,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8378378378378"
-                    Point2="0,17.8378378378378"
-                    Point3="4,17.8378378378378" />
-                  <mssgle:LineSegment
-                    End="319,17.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="319,17.8378378378378"
-                    Point2="323,17.8378378378378"
-                    Point3="323,21.8378378378378" />
-                  <mssgle:LineSegment
-                    End="323,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="82.96609375,22.8378378378378,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\HANDLE DIM PRODUCT LINE\PRODUCTLINE NDS">
+    design-time-name="Package\Sequence Container\HANDLE DIM CITY\CITY NDS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{189F7BC5-2710-46E6-B2A0-240005FFE1A5}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_ProductLine]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;PRODUCTLINE NDS.Outputs[OLE DB Source Output].Columns[PL_SK]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;PL_SK&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;PRODUCTLINE NDS.Outputs[OLE DB Source Output].Columns[Product line]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Product line&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;PRODUCTLINE NDS.Outputs[OLE DB Source Output].Columns[ProductLineID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ProductLineID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn&gt;Status&lt;/CurrentIndicatorColumn&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent&gt;1&lt;/ValueCurrent&gt;
-  &lt;ValueExpired&gt;0&lt;/ValueExpired&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5424,267 +6325,37 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT\PRODUCT NDS"
-          TopLeft="156.5,5.49999999999995" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Slowly Changing Dimension"
-          TopLeft="126.9,107.1" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[OLE DB Source Output]"
-          TopLeft="230.9,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Derived Column"
-          TopLeft="17.5,208.7" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Historical Attribute Inserts Output]"
-          TopLeft="170.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-77,60"
-              Start="0,0"
-              End="-77,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8378378378378"
-                    Point2="0,17.8378378378378"
-                    Point3="-4,17.8378378378378" />
-                  <mssgle:LineSegment
-                    End="-73,17.8378378378378" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-73,17.8378378378378"
-                    Point2="-77,17.8378378378378"
-                    Point3="-77,21.8378378378378" />
-                  <mssgle:LineSegment
-                    End="-77,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-113.55638671875,22.8378378378378,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="120,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Union All"
+          TopLeft="170.9,411.9" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Sequence Container\HANDLE DIM PRODUCT\OLE DB Command"
           TopLeft="5.49999999999997,310.3" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Derived Column Output]"
-          TopLeft="90.9,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Union All"
-          TopLeft="170.9,411.9" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[New Output]"
-          TopLeft="210.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.6666666666667,263.2"
-              Start="0,0"
-              End="38.6666666666667,255.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,138.046830382638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,138.046830382638"
-                    Point2="0,142.046830382638"
-                    Point3="4,142.046830382638" />
-                  <mssgle:LineSegment
-                    End="34.6666666666667,142.046830382638" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.6666666666667,142.046830382638"
-                    Point2="38.6666666666667,142.046830382638"
-                    Point3="38.6666666666667,146.046830382638" />
-                  <mssgle:LineSegment
-                    End="38.6666666666667,255.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-7.75805338541667,147.046830382638,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[OLE DB Command Output]"
-          TopLeft="87.9,351.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124.333333333333,59.9999999999998"
-              Start="0,0"
-              End="124.333333333333,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5263157894736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5263157894736"
-                    Point2="0,35.5263157894736"
-                    Point3="4,35.5263157894736" />
-                  <mssgle:LineSegment
-                    End="120.333333333333,35.5263157894736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120.333333333333,35.5263157894736"
-                    Point2="124.333333333333,35.5263157894736"
-                    Point3="124.333333333333,39.5263157894736" />
-                  <mssgle:LineSegment
-                    End="124.333333333333,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Derived Column 1"
-          TopLeft="149.7,513.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Union All Output 1]"
-          TopLeft="230.9,453.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Insert Destination"
-          TopLeft="149.7,615.099999999999" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Derived Column Output1]"
-          TopLeft="230.9,555.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Sequence Container\HANDLE DIM PRODUCT\OLE DB Command 1"
           TopLeft="291.7,208.7" />
-        <EdgeLayout
-          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Inferred Member Updates Output]"
-          TopLeft="250.9,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128,59.9999999999999"
-              Start="0,0"
-              End="128,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.8085106382978" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8085106382978"
-                    Point2="0,26.8085106382978"
-                    Point3="4,26.8085106382978" />
-                  <mssgle:LineSegment
-                    End="124,26.8085106382978" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124,26.8085106382978"
-                    Point2="128,26.8085106382978"
-                    Point3="128,30.8085106382978" />
-                  <mssgle:LineSegment
-                    End="128,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-10.40298828125,31.8085106382978,148.8059765625,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Derived Column 1"
+          TopLeft="149.7,513.5" />
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT\PRODUCT NDS"
+          TopLeft="156.5,5.49999999999995" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Insert Destination"
+          TopLeft="149.7,615.099999999999" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Derived Column"
+          TopLeft="17.5,208.7" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT\Slowly Changing Dimension"
+          TopLeft="126.9,107.1" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Sequence Container\HANDLE DIM PRODUCT\OLE DB Command 2"
@@ -5722,6 +6393,246 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="82.96609375,22.8378378378378,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Union All Output 1]"
+          TopLeft="230.9,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[OLE DB Source Output]"
+          TopLeft="230.9,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[OLE DB Command Output]"
+          TopLeft="87.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999998"
+              Start="0,0"
+              End="124.333333333333,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[New Output]"
+          TopLeft="210.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6666666666667,263.2"
+              Start="0,0"
+              End="38.6666666666667,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,138.046830382638" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,138.046830382638"
+                    Point2="0,142.046830382638"
+                    Point3="4,142.046830382638" />
+                  <mssgle:LineSegment
+                    End="34.6666666666667,142.046830382638" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6666666666667,142.046830382638"
+                    Point2="38.6666666666667,142.046830382638"
+                    Point3="38.6666666666667,146.046830382638" />
+                  <mssgle:LineSegment
+                    End="38.6666666666667,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.75805338541667,147.046830382638,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Inferred Member Updates Output]"
+          TopLeft="250.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128,59.9999999999999"
+              Start="0,0"
+              End="128,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8085106382978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8085106382978"
+                    Point2="0,26.8085106382978"
+                    Point3="4,26.8085106382978" />
+                  <mssgle:LineSegment
+                    End="124,26.8085106382978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124,26.8085106382978"
+                    Point2="128,26.8085106382978"
+                    Point3="128,30.8085106382978" />
+                  <mssgle:LineSegment
+                    End="128,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.40298828125,31.8085106382978,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Historical Attribute Inserts Output]"
+          TopLeft="170.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77,60"
+              Start="0,0"
+              End="-77,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8378378378378"
+                    Point2="0,17.8378378378378"
+                    Point3="-4,17.8378378378378" />
+                  <mssgle:LineSegment
+                    End="-73,17.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73,17.8378378378378"
+                    Point2="-77,17.8378378378378"
+                    Point3="-77,21.8378378378378" />
+                  <mssgle:LineSegment
+                    End="-77,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.55638671875,22.8378378378378,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Derived Column Output1]"
+          TopLeft="230.9,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT.Paths[Derived Column Output]"
+          TopLeft="90.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5793,6 +6704,427 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\HANDLE DIM PRODUCT LINE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\PRODUCTLINE NDS"
+          TopLeft="145.3,5.49999999999995" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\OLE DB Command 2"
+          TopLeft="526.7,208.7" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\OLE DB Command 1"
+          TopLeft="291.7,208.7" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\OLE DB Command"
+          TopLeft="5.49999999999997,310.3" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Derived Column 1"
+          TopLeft="149.7,513.5" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Slowly Changing Dimension"
+          TopLeft="126.9,107.1" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Insert Destination"
+          TopLeft="149.7,615.099999999999" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Derived Column"
+          TopLeft="17.5,208.7" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Union All"
+          TopLeft="170.9,411.9" />
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Derived Column Output1]"
+          TopLeft="230.9,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Derived Column Output]"
+          TopLeft="90.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Changing Attribute Updates Output]"
+          TopLeft="290.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="323,59.9999999999999"
+              Start="0,0"
+              End="323,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8378378378378"
+                    Point2="0,17.8378378378378"
+                    Point3="4,17.8378378378378" />
+                  <mssgle:LineSegment
+                    End="319,17.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="319,17.8378378378378"
+                    Point2="323,17.8378378378378"
+                    Point3="323,21.8378378378378" />
+                  <mssgle:LineSegment
+                    End="323,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="82.96609375,22.8378378378378,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Union All Output 1]"
+          TopLeft="230.9,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[OLE DB Source Output]"
+          TopLeft="230.9,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[OLE DB Command Output]"
+          TopLeft="87.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999998"
+              Start="0,0"
+              End="124.333333333333,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[New Output]"
+          TopLeft="210.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6666666666667,263.2"
+              Start="0,0"
+              End="38.6666666666667,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,138.046830382638" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,138.046830382638"
+                    Point2="0,142.046830382638"
+                    Point3="4,142.046830382638" />
+                  <mssgle:LineSegment
+                    End="34.6666666666667,142.046830382638" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6666666666667,142.046830382638"
+                    Point2="38.6666666666667,142.046830382638"
+                    Point3="38.6666666666667,146.046830382638" />
+                  <mssgle:LineSegment
+                    End="38.6666666666667,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.75805338541665,147.046830382638,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Inferred Member Updates Output]"
+          TopLeft="250.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128,59.9999999999999"
+              Start="0,0"
+              End="128,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8085106382978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8085106382978"
+                    Point2="0,26.8085106382978"
+                    Point3="4,26.8085106382978" />
+                  <mssgle:LineSegment
+                    End="124,26.8085106382978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124,26.8085106382978"
+                    Point2="128,26.8085106382978"
+                    Point3="128,30.8085106382978" />
+                  <mssgle:LineSegment
+                    End="128,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.40298828125,31.8085106382978,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\HANDLE DIM PRODUCT LINE.Paths[Historical Attribute Inserts Output]"
+          TopLeft="170.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77,60"
+              Start="0,0"
+              End="-77,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8378378378378"
+                    Point2="0,17.8378378378378"
+                    Point3="-4,17.8378378378378" />
+                  <mssgle:LineSegment
+                    End="-73,17.8378378378378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73,17.8378378378378"
+                    Point2="-77,17.8378378378378"
+                    Point3="-77,21.8378378378378" />
+                  <mssgle:LineSegment
+                    End="-77,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.55638671875,22.8378378378378,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\HANDLE DIM PRODUCT LINE\PRODUCTLINE NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\HANDLE DIM PRODUCT LINE\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{189F7BC5-2710-46E6-B2A0-240005FFE1A5}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_ProductLine]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;PRODUCTLINE NDS.Outputs[OLE DB Source Output].Columns[PL_SK]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PL_SK&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;PRODUCTLINE NDS.Outputs[OLE DB Source Output].Columns[Product line]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Product line&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;PRODUCTLINE NDS.Outputs[OLE DB Source Output].Columns[ProductLineID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ProductLineID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn&gt;Status&lt;/CurrentIndicatorColumn&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent&gt;1&lt;/ValueCurrent&gt;
+  &lt;ValueExpired&gt;0&lt;/ValueExpired&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Time]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\FACT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

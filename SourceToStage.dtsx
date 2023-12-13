@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{6C36A320-6BF9-4EE3-835E-91D25FCD98F9}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{11154D12-FC11-4EC5-88C9-3B539522DE57}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -62,6 +62,30 @@
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\STUDY\HTTTPVTTKD\PROJECT\supermarket_sales.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 4]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2F3D848B-9C4B-4FD2-A331-C81761CB969F}"
+      DTS:ObjectName="Excel Connection Manager 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 5]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{3F35675E-0EE9-4719-86C8-4D71DC559B67}"
+      DTS:ObjectName="Excel Connection Manager 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -246,8 +270,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\city SOURCE TO STAGE\city SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -560,7 +584,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -585,7 +609,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET product"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -610,7 +634,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -635,7 +659,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -709,8 +733,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\product SOURCE TO STAGE\product SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1100,8 +1124,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\ProductLine SOURCE TO STAGE\ProductLine SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1414,7 +1438,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1431,7 +1455,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET product"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1448,7 +1472,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET product line"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1465,7 +1489,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1531,8 +1555,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2141,7 +2165,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE city STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2158,7 +2182,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE product STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2175,7 +2199,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE ProductLine STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2192,7 +2216,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE supermarket_sales STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2209,7 +2233,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2226,7 +2250,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET product"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2243,7 +2267,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2260,7 +2284,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2412,9 +2436,45 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\city SOURCE TO STAGE"
+          TopLeft="1086.66122617801,353.949579521682" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\GET CET,LSET city"
+          TopLeft="1107.06938948676,249.949579612842" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\GET CET,LSET product"
+          TopLeft="480.171428908986,247.764705665177" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\GET CET,LSET ProductLine"
+          TopLeft="782.85714452364,253.172548808911" />
+        <NodeLayout
           Size="237.6,41.6"
           Id="Package\GET CET,LSET supermarket_sales"
           TopLeft="132.142857424155,246.235293901812" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\product SOURCE TO STAGE"
+          TopLeft="469.457143171892,351.764705574017" />
+        <NodeLayout
+          Size="228.8,41.6"
+          Id="Package\ProductLine SOURCE TO STAGE"
+          TopLeft="775.714287365577,357.172548717751" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\set CET city"
+          TopLeft="1095.82222392994,58.6274509290029" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\set CET product"
+          TopLeft="495.965079736257,58.6274509290029" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\set CET product line"
+          TopLeft="802.222223929942,64.0352940727373" />
         <NodeLayout
           Size="205.6,41.6"
           Id="Package\set CET supermarket_sales"
@@ -2425,8 +2485,32 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           TopLeft="127.142857413511,352.5294114557" />
         <NodeLayout
           Size="233.6,41.6"
+          Id="Package\TRUNCATE TABLE city STAGE"
+          TopLeft="1066.22857304945,151.411764573164" />
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\TRUNCATE TABLE product STAGE"
+          TopLeft="456.60000028738,154.470588099895" />
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\TRUNCATE TABLE ProductLine STAGE"
+          TopLeft="772.628573049453,156.819607716899" />
+        <NodeLayout
+          Size="233.6,41.6"
           Id="Package\TRUNCATE TABLE supermarket_sales STAGE"
           TopLeft="135.00000028738,154.470588099895" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\UPDATE LSET city"
+          TopLeft="1096.02063718068,456.869280601396" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\UPDATE LSET product"
+          TopLeft="484.457143203823,449.647058429396" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\UPDATE LSET ProductLine"
+          TopLeft="790.714287397508,455.05490157313" />
         <NodeLayout
           Size="235.2,41.6"
           Id="Package\UPDATE LSET supermarket_sales"
@@ -2476,92 +2560,6 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="254.442857418833,287.835293901812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.694117553888"
-              Start="0,0"
-              End="0,57.194117553888">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.194117553888" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="257.057143139961,394.1294114557">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.7529410920135"
-              Start="0,0"
-              End="0,47.2529410920135">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.2529410920135" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="187.2,41.6"
-          Id="Package\GET CET,LSET product"
-          TopLeft="480.171428908986,247.764705665177" />
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\set CET product"
-          TopLeft="495.965079736257,58.6274509290029" />
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\product SOURCE TO STAGE"
-          TopLeft="469.457143171892,351.764705574017" />
-        <NodeLayout
-          Size="233.6,41.6"
-          Id="Package\TRUNCATE TABLE product STAGE"
-          TopLeft="456.60000028738,154.470588099895" />
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\UPDATE LSET product"
-          TopLeft="484.457143203823,449.647058429396" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="573.082540011818,100.227450929003">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.2431371708921"
-              Start="0,0"
-              End="0,46.7431371708921">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.7431371708921" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1]"
           TopLeft="573.585714598183,196.070588099895">
           <EdgeLayout.Curve>
@@ -2575,92 +2573,6 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,44.194117565282" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 1]"
-          TopLeft="574.014286040439,289.364705665177">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62.39999990884"
-              Start="0,0"
-              End="0,54.89999990884">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.89999990884" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 1]"
-          TopLeft="575.157143187858,393.364705574017">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.2823528553793"
-              Start="0,0"
-              End="0,48.7823528553793">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.7823528553793" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205.6,41.6"
-          Id="Package\GET CET,LSET ProductLine"
-          TopLeft="782.85714452364,253.172548808911" />
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\set CET product line"
-          TopLeft="802.222223929942,64.0352940727373" />
-        <NodeLayout
-          Size="228.8,41.6"
-          Id="Package\ProductLine SOURCE TO STAGE"
-          TopLeft="775.714287365577,357.172548717751" />
-        <NodeLayout
-          Size="233.6,41.6"
-          Id="Package\TRUNCATE TABLE ProductLine STAGE"
-          TopLeft="772.628573049453,156.819607716899" />
-        <NodeLayout
-          Size="202.4,41.6"
-          Id="Package\UPDATE LSET ProductLine"
-          TopLeft="790.714287397508,455.05490157313" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4 1]"
-          TopLeft="889.225398489697,105.635294072737">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.1843136441615"
-              Start="0,0"
-              End="0,43.6843136441615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.6843136441615" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2692,92 +2604,6 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 1 1]"
-          TopLeft="887.885715944609,294.772548808911">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62.3999999088401"
-              Start="0,0"
-              End="0,54.8999999088401">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.8999999088401" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 1 1]"
-          TopLeft="888.414287381543,398.772548717751">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.2823528553789"
-              Start="0,0"
-              End="0,48.7823528553789">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.7823528553789" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\GET CET,LSET city"
-          TopLeft="1107.06938948676,249.949579612842" />
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\set CET city"
-          TopLeft="1095.82222392994,58.6274509290029" />
-        <NodeLayout
-          Size="189.6,41.6"
-          Id="Package\city SOURCE TO STAGE"
-          TopLeft="1086.66122617801,353.949579521682" />
-        <NodeLayout
-          Size="233.6,41.6"
-          Id="Package\TRUNCATE TABLE city STAGE"
-          TopLeft="1066.22857304945,151.411764573164" />
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\UPDATE LSET city"
-          TopLeft="1105.7428588717,449.647058429396" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4 1 1]"
-          TopLeft="1182.8253984897,100.227450929003">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.1843136441615"
-              Start="0,0"
-              End="0,43.6843136441615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.6843136441615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
           TopLeft="1182.84898126811,193.011764573164">
           <EdgeLayout.Curve>
@@ -2791,6 +2617,72 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,49.4378150396772" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="254.442857418833,287.835293901812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.694117553888"
+              Start="0,0"
+              End="0,57.194117553888">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.194117553888" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1]"
+          TopLeft="574.014286040439,289.364705665177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.39999990884"
+              Start="0,0"
+              End="0,54.89999990884">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.89999990884" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1 1]"
+          TopLeft="887.885715944609,294.772548808911">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.3999999088401"
+              Start="0,0"
+              End="0,54.8999999088401">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.8999999088401" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2822,19 +2714,151 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 1 1 1]"
-          TopLeft="1184.40204252486,395.549579521682">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="257.057143139961,394.1294114557">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54.0974789077143"
+              EndConnector="0,54.7529410920135"
               Start="0,0"
-              End="0,46.5974789077143">
+              End="0,47.2529410920135">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5974789077143" />
+                    End="0,47.2529410920135" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1]"
+          TopLeft="575.157143187858,393.364705574017">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.2823528553793"
+              Start="0,0"
+              End="0,48.7823528553793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.7823528553793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1 1]"
+          TopLeft="888.414287381543,398.772548717751">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.2823528553789"
+              Start="0,0"
+              End="0,48.7823528553789">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.7823528553789" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1 1 1]"
+          TopLeft="1179.54093167934,395.549579521682">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.3197010797138"
+              Start="0,0"
+              End="0,53.8197010797138">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.8197010797138" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="573.082540011818,100.227450929003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.2431371708921"
+              Start="0,0"
+              End="0,46.7431371708921">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.7431371708921" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4 1]"
+          TopLeft="889.225398489697,105.635294072737">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1843136441615"
+              Start="0,0"
+              End="0,43.6843136441615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6843136441615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4 1 1]"
+          TopLeft="1182.8253984897,100.227450929003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1843136441615"
+              Start="0,0"
+              End="0,43.6843136441615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6843136441615" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2847,55 +2871,84 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\supermarket_sales SOURCE TO STAGE">
+    design-time-name="Package\city SOURCE TO STAGE">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales STAGE"
-          TopLeft="235.000000500253,253.882352718639" />
+          Size="137.6,41.6"
+          Id="Package\city SOURCE TO STAGE\Update Date"
+          TopLeft="250.000000532184,206.470588054315" />
         <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales SOURCE"
-          TopLeft="233.571429068641,103.99999990884" />
+          Size="137.6,41.6"
+          Id="Package\city SOURCE TO STAGE\city SOURCE"
+          TopLeft="244.571428904728,103.99999990884" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\city SOURCE TO STAGE\city STAGE"
+          TopLeft="259.999996125698,309.99999538064" />
         <EdgeLayout
-          Id="Package\supermarket_sales SOURCE TO STAGE.Paths[Excel Source Output]"
-          TopLeft="336.885714784447,145.59999990884">
+          Id="Package\city SOURCE TO STAGE.Paths[Excel Source Output]"
+          TopLeft="316.085714718456,145.59999990884">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,108.282352809799"
+              EndConnector="0,60.870588145475"
               Start="0,0"
-              End="0,100.782352809799">
+              End="0,53.370588145475">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,100.782352809799" />
+                    End="0,53.370588145475" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\city SOURCE TO STAGE.Paths[Derived Column Output]"
+          TopLeft="321.799998328941,248.070588054315">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.929407326325"
+              Start="0,0"
+              End="0,54.429407326325">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.429407326325" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales SOURCE">
+    design-time-name="Package\city SOURCE TO STAGE\city SOURCE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales STAGE">
+    design-time-name="Package\city SOURCE TO STAGE\city STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2913,6 +2966,10 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\product SOURCE TO STAGE\product STAGE"
+          TopLeft="244.285714805734,331.72941150128" />
+        <NodeLayout
           Size="156.8,41.6"
           Id="Package\product SOURCE TO STAGE\product SOURCE"
           TopLeft="233.571429068641,103.99999990884" />
@@ -2920,10 +2977,6 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           Size="137.6,41.6"
           Id="Package\product SOURCE TO STAGE\Update Date"
           TopLeft="250.000000532184,206.470588054315" />
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\product SOURCE TO STAGE\product STAGE"
-          TopLeft="244.285714805734,331.72941150128" />
         <EdgeLayout
           Id="Package\product SOURCE TO STAGE.Paths[Excel Source Output]"
           TopLeft="315.385714800413,145.59999990884">
@@ -2972,7 +3025,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\product SOURCE TO STAGE\product SOURCE">
+    design-time-name="Package\product SOURCE TO STAGE\product STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2985,7 +3038,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\product SOURCE TO STAGE\product STAGE">
+    design-time-name="Package\product SOURCE TO STAGE\product SOURCE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3007,13 +3060,13 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           Id="Package\ProductLine SOURCE TO STAGE\Update Date"
           TopLeft="250.000000532184,206.470588054315" />
         <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\ProductLine SOURCE TO STAGE\ProductLine STAGE"
-          TopLeft="231.785714991998,330.062744859449" />
-        <NodeLayout
           Size="176,41.6"
           Id="Package\ProductLine SOURCE TO STAGE\ProductLine SOURCE"
           TopLeft="233.571429068641,103.99999990884" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\ProductLine SOURCE TO STAGE\ProductLine STAGE"
+          TopLeft="231.785714991998,330.062744859449" />
         <EdgeLayout
           Id="Package\ProductLine SOURCE TO STAGE.Paths[Excel Source Output]"
           TopLeft="320.185714800412,145.59999990884">
@@ -3062,19 +3115,6 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ProductLine SOURCE TO STAGE\ProductLine STAGE">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\ProductLine SOURCE TO STAGE\ProductLine SOURCE">
     <Properties>
       <Property>
@@ -3087,59 +3127,46 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProductLine SOURCE TO STAGE\ProductLine STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\city SOURCE TO STAGE">
+    design-time-name="Package\supermarket_sales SOURCE TO STAGE">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\city SOURCE TO STAGE\Update Date"
-          TopLeft="250.000000532184,206.470588054315" />
+          Size="201.6,41.6"
+          Id="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales STAGE"
+          TopLeft="235.000000500253,253.882352718639" />
         <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\city SOURCE TO STAGE\city SOURCE"
-          TopLeft="244.571428904728,103.99999990884" />
+          Size="208.8,41.6"
+          Id="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales SOURCE"
+          TopLeft="233.571429068641,103.99999990884" />
         <EdgeLayout
-          Id="Package\city SOURCE TO STAGE.Paths[Excel Source Output]"
-          TopLeft="316.085714718456,145.59999990884">
+          Id="Package\supermarket_sales SOURCE TO STAGE.Paths[Excel Source Output]"
+          TopLeft="336.885714784447,145.59999990884">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.870588145475"
+              EndConnector="0,108.282352809799"
               Start="0,0"
-              End="0,53.370588145475">
+              End="0,100.782352809799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.370588145475" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\city SOURCE TO STAGE\city STAGE"
-          TopLeft="259.999996125698,309.99999538064" />
-        <EdgeLayout
-          Id="Package\city SOURCE TO STAGE.Paths[Derived Column Output]"
-          TopLeft="321.799998328941,248.070588054315">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61.929407326325"
-              Start="0,0"
-              End="0,54.429407326325">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.429407326325" />
+                    End="0,100.782352809799" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3152,20 +3179,15 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\city SOURCE TO STAGE\city SOURCE">
+    design-time-name="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales SOURCE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\city SOURCE TO STAGE\city STAGE">
+    design-time-name="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales STAGE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

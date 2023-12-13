@@ -194,45 +194,15 @@ CREATE TABLE Dim_Product (
 )
 GO
 
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Year]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_Year
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Time]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Time
 GO
-CREATE TABLE Dim_Year (
-  YearID int IDENTITY(1, 1) NOT NULL,
-  Nam int,
-  [Status] int
-)
-GO
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Month]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_Month
-GO
-CREATE TABLE Dim_Month (
-  MonthID int IDENTITY(1, 1) NOT NULL,
-  Thang int,
-  YearID int,
-  [Status] int
-)
-GO
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Day]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_Day
-GO
-CREATE TABLE Dim_Day (
-  DayID int IDENTITY(1, 1) NOT NULL,
-  Ngay int,
-  MonthID int,
-  [Status] int
-)
-GO
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Hour]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_Hour
-GO
-CREATE TABLE Dim_Hour (
-  HourID int IDENTITY(1, 1) NOT NULL,
+CREATE TABLE Dim_Time (
+  TimeID int IDENTITY(1, 1) NOT NULL,
   Gio int,
-  DayID int,
+  Ngay int,
+  Thang int,
+  Nam int,
   [Status] int
 )
 GO
