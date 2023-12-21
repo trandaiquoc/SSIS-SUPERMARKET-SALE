@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{B10BC85B-BD04-45D9-A95F-FEFC43288136}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{3E7B1F84-CAF3-4B0F-9FAB-196A6DFEAFB1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -440,7 +440,7 @@
                           refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].Columns[MaThoiGian]"
                           cachedDataType="i4"
                           cachedName="MaThoiGian"
-                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[HourID]"
+                          externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[TimeID]"
                           lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -464,10 +464,6 @@
                           dataType="wstr"
                           length="255"
                           name="ProductID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[HourID]"
-                          dataType="i4"
-                          name="HourID" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Customer type]"
                           dataType="wstr"
@@ -507,6 +503,10 @@
                           refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
                           dataType="i4"
                           name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[TimeID]"
+                          dataType="i4"
+                          name="TimeID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -5458,6 +5458,14 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           Id="Package\GET CET,LSET supermarket_sales"
           TopLeft="283.53741544184,165.979832196103" />
         <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Sequence Container\DELETE DIM_TIME"
+          TopLeft="137.611068842865,305.822219791457" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Sequence Container\EXECUTE INSERT DIM_TIME"
+          TopLeft="119.555514273822,398.044441390921" />
+        <NodeLayout
           Size="224,41.6"
           Id="Package\Sequence Container\FACT SUPERMARKET SALES"
           TopLeft="119.055534626323,497.599996167025" />
@@ -5517,10 +5525,6 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Sequence Container\DELETE DIM_TIME"
-          TopLeft="137.611068842865,305.822219791457" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
           TopLeft="223.026963466125,254.435293856232">
@@ -5543,10 +5547,6 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="220.8,41.6"
-          Id="Package\Sequence Container\EXECUTE INSERT DIM_TIME"
-          TopLeft="119.555514273822,398.044441390921" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
           TopLeft="226.583291558344,347.422219791457">
@@ -5614,6 +5614,10 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           Size="205.6,41.6"
           Id="Package\set CET supermarket_sales"
           TopLeft="301.904762419715,60" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\SET LSET BANG CET"
+          TopLeft="764.092944740998,1089.49953247719" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="403.521088930777,101.6">
@@ -5826,24 +5830,20 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\SET LSET BANG CET"
-          TopLeft="764.092944740998,1089.49953247719" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="859.617901332703,1043.27731057639">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.2222219007986"
+              EndConnector="0,46.222221900799"
               Start="0,0"
-              End="0,38.7222219007986">
+              End="0,38.722221900799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.7222219007986" />
+                    End="0,38.722221900799" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5861,13 +5861,21 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="204,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM"
+          TopLeft="196.29628557114,199.333331947194" />
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID"
+          TopLeft="230.555542958556,311.037034874124" />
+        <NodeLayout
           Size="212,41.6"
           Id="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS"
           TopLeft="184.999989892046,70.199999511838" />
         <NodeLayout
-          Size="204,41.6"
-          Id="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM"
-          TopLeft="196.29628557114,199.333331947194" />
+          Size="105.6,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\FACT"
+          TopLeft="252.083319560108,419.249997084588" />
         <EdgeLayout
           Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[OLE DB Source Output]"
           TopLeft="294.648137731593,111.799999511838">
@@ -5890,36 +5898,6 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="141.6,41.6"
-          Id="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID"
-          TopLeft="230.555542958556,311.037034874124" />
-        <EdgeLayout
-          Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Derived Column Output]"
-          TopLeft="299.825914264848,240.933331947194">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,70.10370292693"
-              Start="0,0"
-              End="0,62.60370292693">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.60370292693" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="105.6,41.6"
-          Id="Package\Sequence Container\FACT SUPERMARKET SALES\FACT"
-          TopLeft="252.083319560108,419.249997084588" />
         <EdgeLayout
           Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Lookup Match Output]"
           TopLeft="303.119431259332,352.637034874124">
@@ -5944,9 +5922,80 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Derived Column Output]"
+          TopLeft="299.825914264848,240.933331947194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.10370292693"
+              Start="0,0"
+              End="0,62.60370292693">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.60370292693" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Time]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\FACT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Sequence Container\HANDLE DIM CITY">
     <LayoutInfo>
@@ -6007,7 +6056,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6029,7 +6080,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6087,7 +6140,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6109,7 +6164,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6143,7 +6200,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6767,7 +6826,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6789,7 +6850,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6847,7 +6910,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6869,7 +6934,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6903,7 +6970,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7076,55 +7145,6 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Time]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\FACT">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

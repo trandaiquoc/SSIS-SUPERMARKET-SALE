@@ -215,7 +215,7 @@ CREATE TABLE Fact_supermarket_sales (
     [Invoice ID] nvarchar(255) NOT NULL,
     [Branch] nvarchar(255) NOT NULL,
 	[ProductID] nvarchar(255) NOT NULL,
-	[HourID] int NOT NULL,
+	[TimeID] int NOT NULL,
     [Customer type] nvarchar(255),
     [Gender] nvarchar(255),
     [Quantity] float,
@@ -226,6 +226,51 @@ CREATE TABLE Fact_supermarket_sales (
     [Rating] float,
 	[Status] int
 )
+GO
+
+ALTER TABLE Dim_City
+ADD CONSTRAINT PK_DC PRIMARY KEY (C_SK)
+GO
+ALTER TABLE Dim_City
+ADD CONSTRAINT UQ_C UNIQUE (Branch)
+GO
+ALTER TABLE Dim_ProductLine
+ADD CONSTRAINT PK_DPL PRIMARY KEY (PL_SK)
+GO
+ALTER TABLE Dim_ProductLine
+ADD CONSTRAINT UQ_PL UNIQUE ([ProductLineID])
+GO
+ALTER TABLE Dim_Product
+ADD CONSTRAINT PK_DP PRIMARY KEY (P_SK)
+GO
+ALTER TABLE Dim_Product
+ADD CONSTRAINT UQ_P UNIQUE ([ProductID])
+GO
+ALTER TABLE Dim_Product
+ADD CONSTRAINT FK_P_PL
+FOREIGN KEY ([ProductLine])
+REFERENCES Dim_ProductLine([ProductLineID])
+GO
+ALTER TABLE Dim_Time
+ADD CONSTRAINT PK_DT PRIMARY KEY (TimeID)
+GO
+ALTER TABLE Fact_supermarket_sales
+ADD CONSTRAINT PK_FSS PRIMARY KEY (SS_SK)
+GO
+ALTER TABLE Fact_supermarket_sales
+ADD CONSTRAINT FK_SS_C
+FOREIGN KEY ([Branch])
+REFERENCES Dim_City(Branch);
+GO
+ALTER TABLE Fact_supermarket_sales
+ADD CONSTRAINT FK_SS_P
+FOREIGN KEY ([ProductID])
+REFERENCES Dim_Product([ProductID]);
+GO
+ALTER TABLE Fact_supermarket_sales
+ADD CONSTRAINT FK_SS_PL
+FOREIGN KEY ([TimeID])
+REFERENCES Dim_Time(TimeID);
 GO
 
 USE METADATA

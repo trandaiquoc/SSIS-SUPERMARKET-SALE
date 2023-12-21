@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">QUOC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhb/7Jg07b0WiuZ4NxKykmAAAAAACAAAAAAAQZgAAAAEAACAAAADqhRf7flA9IkCcRDsyFOenWac9Rt739Ycs1ewJI3sHvAAAAAAOgAAAAAIAACAAAACalQnn76F63xQK8tdWd3+0yHRc4CincWxaxwZzI11MhJAAAABqnmNV4iBdsUAhoFuykdMX1CLkUxZLbCZjsXz7QcJKehCiBFIizgj0amekF040DgkY+zElvJJJT6FPqlI1Rb2+4ROqwq78/9VQ48bjy6yZ7ar8QBQljN8h7Xr7QhkvaMRgcjgx+xZteSOrSx5/8hiqtSPmadEx+lYJuZfYC5n2lt5IzzAVwmZbQEPAldyPlwdAAAAAoP0lMKFO3jRgOpe+/jv/DryBrwr3ZIlMkokhriD827D2drM++4pqU4qetFwkM6QuqNQr/PviT6i+oXpXsmHjoQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhb/7Jg07b0WiuZ4NxKykmAAAAAACAAAAAAAQZgAAAAEAACAAAAA+0RpalH3wpY1AY0Xt304YAZJ9g1+HWRM/YwQjO5HyzgAAAAAOgAAAAAIAACAAAABCVkMD0rZmKj2YrWgHEgV2zv16hgtamybvWlVeklnFJ5AAAAB2iG4wGArOnoYZwVH6dobmH9hle4oLIrpcIPCfrF40J1E8u7aq3oiK8ptrDraHMlun7Bzr66+CA2xvOxHP23vajs47oKxn+2PMprZRGoi6bfHZv5MD6uhRuZYfEX4qPDe15HnCR/SacOglb5iWSOzgVTZ6XhzI3Vl8EbArcE4+KJDnhlrNYC95S6lGBYNjjQ9AAAAAOpDPkdzFO07J2jwsN9dNtswjo4YmaWEFVRKGp4Jh19SO+7rmBK4FUCYcmCo35Q71tkVob4KlLlxxdYMhpPk+1w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -609,7 +609,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties="Excel 8.0;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties="EXCEL 8.0;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -741,7 +741,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xlsx;Extended Properties="Excel 12.0 XML;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1761,10 +1761,10 @@
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">40</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">43</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{86F6C757-76D7-4BD5-96CF-B4ADDBD38971}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B10BC85B-BD04-45D9-A95F-FEFC43288136}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
