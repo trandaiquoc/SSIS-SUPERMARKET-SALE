@@ -160,52 +160,6 @@ GO
 
 USE DDS
 GO
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_City]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_City
-GO
-CREATE TABLE Dim_City (
-	C_SK int NOT NULL,
-    Branch nvarchar(255) NOT NULL,
-    City nvarchar(255),
-	[Status] int
-)
-GO
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_ProductLine]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_ProductLine
-GO
-CREATE TABLE Dim_ProductLine (
-	PL_SK int NOT NULL,
-    [Product line] nvarchar(255),
-    [ProductLineID] nvarchar(255),
-	[Status] int
-)
-GO
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Product]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_Product
-GO
-CREATE TABLE Dim_Product (
-	P_SK int NOT NULL,
-    [ProductID] nvarchar(255) NOT NULL,
-    [Unit price] float,
-    [ProductLine] nvarchar(255),
-	[Status] int
-)
-GO
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Time]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE [dbo].Dim_Time
-GO
-CREATE TABLE Dim_Time (
-  TimeID int IDENTITY(1, 1) NOT NULL,
-  Gio int,
-  Ngay int,
-  Thang int,
-  Nam int,
-  [Status] int
-)
-GO
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Fact_supermarket_sales]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE [dbo].Fact_supermarket_sales
@@ -227,6 +181,55 @@ CREATE TABLE Fact_supermarket_sales (
 	[Status] int
 )
 GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_City]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_City
+GO
+CREATE TABLE Dim_City (
+	C_SK int NOT NULL,
+    Branch nvarchar(255) NOT NULL,
+    City nvarchar(255),
+	[Status] int
+)
+GO
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Product]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Product
+GO
+CREATE TABLE Dim_Product (
+	P_SK int NOT NULL,
+    [ProductID] nvarchar(255) NOT NULL,
+    [Unit price] float,
+    [ProductLine] nvarchar(255),
+	[Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_ProductLine]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_ProductLine
+GO
+CREATE TABLE Dim_ProductLine (
+	PL_SK int NOT NULL,
+    [Product line] nvarchar(255),
+    [ProductLineID] nvarchar(255),
+	[Status] int
+)
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[Dim_Time]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE [dbo].Dim_Time
+GO
+CREATE TABLE Dim_Time (
+  TimeID int IDENTITY(1, 1) NOT NULL,
+  Gio int,
+  Ngay int,
+  Thang int,
+  Nam int,
+  [Status] int
+)
+GO
+
 
 ALTER TABLE Dim_City
 ADD CONSTRAINT PK_DC PRIMARY KEY (C_SK)
@@ -268,7 +271,7 @@ FOREIGN KEY ([ProductID])
 REFERENCES Dim_Product([ProductID]);
 GO
 ALTER TABLE Fact_supermarket_sales
-ADD CONSTRAINT FK_SS_PL
+ADD CONSTRAINT FK_SS_T
 FOREIGN KEY ([TimeID])
 REFERENCES Dim_Time(TimeID);
 GO

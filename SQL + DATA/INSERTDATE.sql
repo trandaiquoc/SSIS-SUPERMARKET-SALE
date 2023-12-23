@@ -73,6 +73,3 @@ BEGIN
 		SET @Y = @Y + 1
 	END
 END
-GO
-DELETE FROM DBO.Dim_Time
-EXEC DBO.InsertTime

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{3E7B1F84-CAF3-4B0F-9FAB-196A6DFEAFB1}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{5A20574C-985A-4B1D-AA35-1038FE9A01B4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -137,7 +137,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -162,7 +162,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET product"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -187,7 +187,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -441,7 +441,7 @@
                           cachedDataType="i4"
                           cachedName="MaThoiGian"
                           externalMetadataColumnId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[TimeID]"
-                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]" />
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Match Output].Columns[MaThoiGian]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -464,6 +464,10 @@
                           dataType="wstr"
                           length="255"
                           name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[TimeID]"
+                          dataType="i4"
+                          name="TimeID" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Customer type]"
                           dataType="wstr"
@@ -503,10 +507,6 @@
                           refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
                           dataType="i4"
                           name="Status" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input].ExternalColumns[TimeID]"
-                          dataType="i4"
-                          name="TimeID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -536,11 +536,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID"
+                  refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID"
                   componentClassID="Microsoft.Lookup"
                   contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
                   description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="LAY HOURID"
+                  name="LAY TIMEID"
                   usesDispositions="true"
                   version="6">
                   <properties>
@@ -571,7 +571,7 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                       dataType="System.Int32"
                       description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                       name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">1</property>
+                      typeConverter="LookupNoMatchBehavior">0</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -604,7 +604,7 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Connections[OleDbConnection]"
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[LocalHost.DDS]"
                       connectionManagerRefId="Package.ConnectionManagers[LocalHost.DDS]"
                       description="Connection manager used to access lookup data."
@@ -612,11 +612,11 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]"
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input]"
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[YEAR]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input].Columns[YEAR]"
                           cachedDataType="i4"
                           cachedName="YEAR"
                           lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[YEAR]">
@@ -632,7 +632,7 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[MONTH]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input].Columns[MONTH]"
                           cachedDataType="i4"
                           cachedName="MONTH"
                           lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[MONTH]">
@@ -648,7 +648,7 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[HOUR]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input].Columns[HOUR]"
                           cachedDataType="i4"
                           cachedName="HOUR"
                           lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[HOUR]">
@@ -664,7 +664,7 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input].Columns[DAY]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input].Columns[DAY]"
                           cachedDataType="i4"
                           cachedName="DAY"
                           lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output].Columns[DAY]">
@@ -685,17 +685,18 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output]"
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Match Output]"
                       errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
                       exclusionGroup="1"
                       name="Lookup Match Output"
-                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]">
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Match Output].Columns[MaThoiGian]"
                           dataType="i4"
                           errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output].Columns[MaThoiGian]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Match Output].Columns[MaThoiGian]"
                           name="MaThoiGian"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -709,30 +710,30 @@ where [refTable].[Ngay] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ? 
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup No Match Output]"
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup No Match Output]"
                       description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                       exclusionGroup="1"
                       name="Lookup No Match Output"
-                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]">
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input]">
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output]"
+                      refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Lookup Error Output"
-                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]">
+                      synchronousInputId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1249,14 +1250,14 @@ FROM [supermarket_sales_NDS]</property>
               <paths>
                 <path
                   refId="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Derived Column Output]"
-                  endId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Inputs[Lookup Input]"
+                  endId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Inputs[Lookup Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Lookup Match Output]"
                   endId="Package\Sequence Container\FACT SUPERMARKET SALES\FACT.Inputs[OLE DB Destination Input]"
                   name="Lookup Match Output"
-                  startId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID.Outputs[Lookup Match Output]" />
+                  startId="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[OLE DB Source Output]"
                   endId="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM.Inputs[Derived Column Input]"
@@ -5278,7 +5279,7 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5295,7 +5296,7 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET product"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5312,7 +5313,7 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET productLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5468,7 +5469,7 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
         <NodeLayout
           Size="224,41.6"
           Id="Package\Sequence Container\FACT SUPERMARKET SALES"
-          TopLeft="119.055534626323,497.599996167025" />
+          TopLeft="119.055534626323,496.733329506385" />
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\Sequence Container\HANDLE DIM CITY"
@@ -5575,14 +5576,14 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.9555547761041"
+              EndConnector="0,57.0888881154639"
               Start="0,0"
-              End="0,50.4555547761041">
+              End="0,49.5888881154639">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.4555547761041" />
+                    End="0,49.5888881154639" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5865,9 +5866,9 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
           Id="Package\Sequence Container\FACT SUPERMARKET SALES\TACH NGAY THANG NAM"
           TopLeft="196.29628557114,199.333331947194" />
         <NodeLayout
-          Size="141.6,41.6"
-          Id="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID"
-          TopLeft="230.555542958556,311.037034874124" />
+          Size="136,41.6"
+          Id="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID"
+          TopLeft="231.388876246358,310.170368213484" />
         <NodeLayout
           Size="212,41.6"
           Id="Package\Sequence Container\FACT SUPERMARKET SALES\SUPERMARKET SALE NDS"
@@ -5875,7 +5876,7 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
         <NodeLayout
           Size="105.6,41.6"
           Id="Package\Sequence Container\FACT SUPERMARKET SALES\FACT"
-          TopLeft="252.083319560108,419.249997084588" />
+          TopLeft="244.166653325989,415.999997975032" />
         <EdgeLayout
           Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[OLE DB Source Output]"
           TopLeft="294.648137731593,111.799999511838">
@@ -5900,42 +5901,42 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Lookup Match Output]"
-          TopLeft="303.119431259332,352.637034874124">
+          TopLeft="298.177764786173,351.770368213484">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.6129622104635"
+              EndConnector="0,64.2296297615479"
               Start="0,0"
-              End="0,59.1129622104635">
+              End="0,56.7296297615479">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.1129622104635" />
+                    End="0,56.7296297615479" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,23.7517936052318,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,22.5601273807739,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\FACT SUPERMARKET SALES.Paths[Derived Column Output]"
-          TopLeft="299.825914264848,240.933331947194">
+          TopLeft="298.842580908749,240.933331947194">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.10370292693"
+              EndConnector="0,69.2370362662901"
               Start="0,0"
-              End="0,62.60370292693">
+              End="0,61.7370362662901">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.60370292693" />
+                    End="0,61.7370362662901" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5948,12 +5949,12 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\LAY HOURID">
+    design-time-name="Package\Sequence Container\FACT SUPERMARKET SALES\LAY TIMEID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5963,7 +5964,7 @@ OR ([UpdateDate] &gt;= ? AND [UpdateDate] &lt; ?)</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
