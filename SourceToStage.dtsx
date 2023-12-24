@@ -9,10 +9,11 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5314.0"
   DTS:LocaleID="1033"
+  DTS:MaxErrorCount="10"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{17DC672B-C2AB-485F-AD21-855E2940685E}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{DB68E05F-1B20-473F-BA0B-F9F80594B4E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +26,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -500,7 +501,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -550,7 +551,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -575,7 +576,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -598,6 +599,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:DTSID="{13b4fc8f-be78-4db3-b0f1-4f7a2c5bd67b}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
+      DTS:MaxErrorCount="10"
       DTS:ObjectName="product SOURCE TO STAGE"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
@@ -1354,7 +1356,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1388,7 +1390,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET product line"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1405,7 +1407,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2081,7 +2083,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE city STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2115,7 +2117,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE ProductLine STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2132,7 +2134,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE supermarket_sales STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2149,7 +2151,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2183,7 +2185,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2200,7 +2202,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2892,21 +2894,21 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         <NodeLayout
           Size="137.6,41.6"
           Id="Package\product SOURCE TO STAGE\Update Date"
-          TopLeft="250.000000532184,206.470588054315" />
+          TopLeft="249.000000547085,206.470588054315" />
         <EdgeLayout
           Id="Package\product SOURCE TO STAGE.Paths[Excel Source Output]"
-          TopLeft="315.385714800413,145.59999990884">
+          TopLeft="314.885714807863,145.59999990884">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.8705881454746"
+              EndConnector="0,60.870588145475"
               Start="0,0"
-              End="0,53.3705881454746">
+              End="0,53.370588145475">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.3705881454746" />
+                    End="0,53.370588145475" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2917,18 +2919,18 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\product SOURCE TO STAGE.Paths[Derived Column Output]"
-          TopLeft="318.942857668959,248.070588054315">
+          TopLeft="318.44285767641,248.070588054315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,83.6588234469655"
+              EndConnector="0,83.658823446965"
               Start="0,0"
-              End="0,76.1588234469655">
+              End="0,76.158823446965">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,76.1588234469655" />
+                    End="0,76.158823446965" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{063652EF-93C1-478D-B925-8E2C8A29FF24}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{3A015529-3AC2-4EAB-AD37-E062C895F8D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2660,6 +2660,7 @@ WHERE [ProductLineID] = ? AND [PL_SK] = ?</property>
       DTS:DTSID="{27d953c0-9e7f-4f68-8775-0c8e2634821e}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
+      DTS:MaxErrorCount="10"
       DTS:ObjectName="SUPERMARKET SALES"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
@@ -2935,13 +2936,6 @@ where [refTable].[Invoice ID] = ?</property>
                       externalMetadataColumnId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].ExternalColumns[Customer type]"
                       lineageId="Package\SUPERMARKET SALES\SUPERMARKET SALE STAGE.Outputs[OLE DB Source Output].Columns[Customer type]" />
                     <inputColumn
-                      refId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].Columns[Gender]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Gender"
-                      externalMetadataColumnId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
-                      lineageId="Package\SUPERMARKET SALES\SUPERMARKET SALE STAGE.Outputs[OLE DB Source Output].Columns[Gender]" />
-                    <inputColumn
                       refId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].Columns[ProductID]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -2997,6 +2991,13 @@ where [refTable].[Invoice ID] = ?</property>
                       cachedName="UpdatedDate"
                       externalMetadataColumnId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
                       lineageId="Package\SUPERMARKET SALES\UPDATED DATE.Outputs[Derived Column Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].Columns[GenderProcessing]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="GenderProcessing"
+                      externalMetadataColumnId="Package\SUPERMARKET SALES\CREATE NEW RECORD.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\SUPERMARKET SALES\GENDER PROCESSING.Outputs[Derived Column Output].Columns[GenderProcessing]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5074,7 +5075,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
           Id="Package\CITY\UPDATE RECORD"
           TopLeft="30.2500009329191,368.970587971482" />
         <NodeLayout
-          Size="185.6,41.6"
+          Size="195.2,41.6"
           Id="Package\CITY\CREATE NEW RECORD"
           TopLeft="412.500000878104,374.691176236823" />
         <NodeLayout
@@ -5199,18 +5200,18 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CITY.Paths[Derived Column Output]"
-          TopLeft="509.017858002905,318.791176322286">
+          TopLeft="511.417858002905,318.791176322286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.8999999145374"
+              EndConnector="0,55.899999914537"
               Start="0,0"
-              End="0,48.3999999145374">
+              End="0,48.399999914537">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.3999999145374" />
+                    End="0,48.399999914537" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5254,7 +5255,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5264,7 +5265,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5460,7 +5461,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5470,7 +5471,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5692,7 +5693,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5702,7 +5703,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5937,7 +5938,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5947,7 +5948,7 @@ WHERE [SS_SK] = ? AND [Invoice ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

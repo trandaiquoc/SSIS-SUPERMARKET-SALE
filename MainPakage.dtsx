@@ -9,10 +9,11 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5314.0"
   DTS:LocaleID="1033"
+  DTS:MaxErrorCount="10"
   DTS:ObjectName="MainPakage"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{DC656F8D-AB51-4D16-9A6C-937EEA927934}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{5F767E74-1460-4BB7-A7BE-6750027B81C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
