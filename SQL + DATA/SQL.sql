@@ -167,8 +167,8 @@ GO
 CREATE TABLE Fact_supermarket_sales (
 	SS_SK int NOT NULL,
     [Invoice ID] nvarchar(255) NOT NULL,
-    [Branch] nvarchar(255) NOT NULL,
-	[ProductID] nvarchar(255) NOT NULL,
+    [C_SK] int NOT NULL,
+	[P_SK] int NOT NULL,
 	[TimeID] int NOT NULL,
     [Customer type] nvarchar(255),
     [Gender] nvarchar(255),
@@ -178,7 +178,10 @@ CREATE TABLE Fact_supermarket_sales (
     [Payment] nvarchar(255),
     [cogs] float,
     [Rating] float,
-	[Status] int
+	[Status] int,
+	[Gross Income] float,
+	[Gross Margin Percentage] float,
+	[UpdateDate] datetime
 )
 GO
 
@@ -262,13 +265,13 @@ ADD CONSTRAINT PK_FSS PRIMARY KEY (SS_SK)
 GO
 ALTER TABLE Fact_supermarket_sales
 ADD CONSTRAINT FK_SS_C
-FOREIGN KEY ([Branch])
-REFERENCES Dim_City(Branch);
+FOREIGN KEY ([C_SK])
+REFERENCES Dim_City([C_SK]);
 GO
 ALTER TABLE Fact_supermarket_sales
 ADD CONSTRAINT FK_SS_P
-FOREIGN KEY ([ProductID])
-REFERENCES Dim_Product([ProductID]);
+FOREIGN KEY ([P_SK])
+REFERENCES Dim_Product([P_SK]);
 GO
 ALTER TABLE Fact_supermarket_sales
 ADD CONSTRAINT FK_SS_T
@@ -290,6 +293,7 @@ CREATE TABLE DATA_FLOW_NDS
 	CONSTRAINT PK_DFNDS PRIMARY KEY (TABLE_NAME)
 )
 
+TRUNCATE TABLE DATA_FLOW_NDS
 INSERT INTO DATA_FLOW_NDS VALUES 
 ('supermarket_sales_NDS', NULL, '01/01/1970'),
 ('product_NDS', NULL, '01/01/1970'),

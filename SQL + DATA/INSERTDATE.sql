@@ -6,6 +6,14 @@ AS
 BEGIN
 	DECLARE @MAX DATETIME= (SELECT MAX(CreateDate) FROM NDS.DBO.supermarket_sales_NDS)
 	DECLARE @MIN DATETIME= (SELECT MIN(CreateDate) FROM NDS.DBO.supermarket_sales_NDS)
+	IF EXISTS (SELECT TOP 1 * FROM DIM_TIME)
+	BEGIN
+		DECLARE @GIO INT = (SELECT TOP 1 GIO FROM DIM_TIME ORDER BY TIMEID DESC)
+		DECLARE @NGAY INT = (SELECT TOP 1 NGAY FROM DIM_TIME ORDER BY TIMEID DESC)
+		DECLARE @THANG INT = (SELECT TOP 1 THANG FROM DIM_TIME ORDER BY TIMEID DESC)
+		DECLARE @NAM INT = (SELECT TOP 1 NAM FROM DIM_TIME ORDER BY TIMEID DESC)
+		SET @MIN = CAST(DATEFROMPARTS(@NAM, @THANG, @NGAY) AS DATETIME) + CAST(@GIO AS DATETIME)
+	END
 	DECLARE @Y INT = CAST(YEAR(@MIN) AS INT)
 	DECLARE @M INT = 1
 	DECLARE @D INT = 1
@@ -23,8 +31,11 @@ BEGIN
 					SET @H = 1
 					WHILE @H < 25
 					BEGIN
-						INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
-						SET @H = @H + 1
+						IF NOT EXISTS (SELECT 1 FROM DIM_TIME WHERE GIO = @H AND NGAY = @D AND THANG = @M AND NAM = @Y)
+						BEGIN
+							INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
+							SET @H = @H + 1
+						END
 					END
 					SET @D = @D + 1
 				END
@@ -36,8 +47,11 @@ BEGIN
 					SET @H = 1
 					WHILE @H < 25
 					BEGIN
-						INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
-						SET @H = @H + 1
+						IF NOT EXISTS (SELECT 1 FROM DIM_TIME WHERE GIO = @H AND NGAY = @D AND THANG = @M AND NAM = @Y)
+						BEGIN
+							INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
+							SET @H = @H + 1
+						END
 					END
 					SET @D = @D + 1
 				END
@@ -49,8 +63,11 @@ BEGIN
 					SET @H = 1
 					WHILE @H < 25
 					BEGIN
-						INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
-						SET @H = @H + 1
+						IF NOT EXISTS (SELECT 1 FROM DIM_TIME WHERE GIO = @H AND NGAY = @D AND THANG = @M AND NAM = @Y)
+						BEGIN
+							INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
+							SET @H = @H + 1
+						END
 					END
 					SET @D = @D + 1
 				END
@@ -62,8 +79,11 @@ BEGIN
 					SET @H = 1
 					WHILE @H < 25
 					BEGIN
-						INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
-						SET @H = @H + 1
+						IF NOT EXISTS (SELECT 1 FROM DIM_TIME WHERE GIO = @H AND NGAY = @D AND THANG = @M AND NAM = @Y)
+						BEGIN
+							INSERT INTO DBO.Dim_Time (Gio, Ngay, Thang, Nam) VALUES (@H, @D, @M, @Y)
+							SET @H = @H + 1
+						END
 					END
 					SET @D = @D + 1
 				END

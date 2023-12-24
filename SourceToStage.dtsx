@@ -11,129 +11,45 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{11154D12-FC11-4EC5-88C9-3B539522DE57}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{17DC672B-C2AB-485F-AD21-855E2940685E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{488F2A21-165D-458A-839A-5D0C5854A113}"
+      DTS:DTSID="{EF841F61-2D5B-4B7B-9CC3-2A2E976568BB}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\STUDY\HTTTPVTTKD\PROJECT\supermarket_sales.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{F47CA67D-88F4-4CE6-BAF7-B64F7F6E0299}"
-      DTS:ObjectName="Excel Connection Manager 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\STUDY\HTTTPVTTKD\PROJECT\supermarket_sales.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{ED31639E-F32C-4E18-8426-EE6F9632EB6A}"
-      DTS:ObjectName="Excel Connection Manager 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\STUDY\HTTTPVTTKD\PROJECT\supermarket_sales.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 3]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{3934C9AF-F093-4BA5-A1AF-A0E087C91136}"
-      DTS:ObjectName="Excel Connection Manager 3">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\STUDY\HTTTPVTTKD\PROJECT\supermarket_sales.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 4]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{2F3D848B-9C4B-4FD2-A331-C81761CB969F}"
-      DTS:ObjectName="Excel Connection Manager 4">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 5]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{3F35675E-0EE9-4719-86C8-4D71DC559B67}"
-      DTS:ObjectName="Excel Connection Manager 5">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=D:\GITHUB\SSIS-SUPERMARKET-SALE\SQL + DATA\supermarket_sales.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.METADATA]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+      DTS:DTSID="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
       DTS:ObjectName="LocalHost.METADATA">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=METADATA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{60D2C412-1F55-4055-B368-51EE71F6FB79}LocalHost.METADATA;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{506BFED8-6929-4EC9-A1FA-A6025932262E}LocalHost.METADATA;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.STAGE]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{CB8F34BA-C7EF-4E82-AA13-9CF676804943}"
+      DTS:DTSID="{6B5978DC-50EC-4D56-A679-C508E1A9F9E0}"
       DTS:ObjectName="LocalHost.STAGE">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=STAGE;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{CB8F34BA-C7EF-4E82-AA13-9CF676804943}LocalHost.STAGE;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.STAGE 1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{2DDAB233-7565-46FB-85D6-842D1763E014}"
-      DTS:ObjectName="LocalHost.STAGE 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=STAGE;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{2DDAB233-7565-46FB-85D6-842D1763E014}LocalHost.STAGE 1;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.TA_METADATA]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{460F7C02-B0AA-4EC8-8C80-FEDD43025BFF}"
-      DTS:ObjectName="LocalHost.TA_METADATA">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=TA_METADATA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{460F7C02-B0AA-4EC8-8C80-FEDD43025BFF}LocalHost.TA_METADATA;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-SourceToStage-{6B5978DC-50EC-4D56-A679-C508E1A9F9E0}LocalHost.STAGE;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -145,7 +61,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="CET_C">
       <DTS:VariableValue
-        DTS:DataType="7">11/27/2023 5:28:54 PM</DTS:VariableValue>
+        DTS:DataType="7">11/27/2023 5:28:00 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -270,8 +186,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\city SOURCE TO STAGE\city SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -584,11 +500,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="select CET,LSET from DATA_FLOW where TABLE_NAME = 'city'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -613,7 +529,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="select CET,LSET from DATA_FLOW where TABLE_NAME = 'product'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -634,11 +550,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="select CET,LSET from DATA_FLOW where TABLE_NAME = 'ProductLine'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -659,11 +575,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET,LSET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="select CET,LSET from DATA_FLOW where TABLE_NAME = 'supermarket_sales'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -733,8 +649,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\product SOURCE TO STAGE\product SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1124,8 +1040,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\ProductLine SOURCE TO STAGE\ProductLine SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1438,11 +1354,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="UPDATE DATA_FLOW SET CET = GETDATE()&#xA; WHERE TABLE_NAME = 'city'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1459,7 +1375,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="UPDATE DATA_FLOW SET CET = GETDATE()&#xA; WHERE TABLE_NAME = 'product'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1472,11 +1388,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET product line"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="UPDATE DATA_FLOW SET CET = GETDATE()&#xA; WHERE TABLE_NAME = 'ProductLine'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1489,11 +1405,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="set CET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="UPDATE DATA_FLOW SET CET = GETDATE()&#xA; WHERE TABLE_NAME = 'supermarket_sales'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1527,7 +1443,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">supermarket_sales$</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1546,7 +1462,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">2</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.String"
                   description="The mapping from parameters in the SQL command to variables."
@@ -1555,8 +1471,8 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
               <connections>
                 <connection
                   refId="Package\supermarket_sales SOURCE TO STAGE\supermarket_sales SOURCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 5]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 5]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1896,7 +1812,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[supermarket_sales_STAGE]</property>
+                  name="OpenRowset">[dbo].[supermarket_sales_STAGE]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2165,11 +2081,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE city STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{CB8F34BA-C7EF-4E82-AA13-9CF676804943}"
+          SQLTask:Connection="{6B5978DC-50EC-4D56-A679-C508E1A9F9E0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE city_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2186,7 +2102,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{CB8F34BA-C7EF-4E82-AA13-9CF676804943}"
+          SQLTask:Connection="{6B5978DC-50EC-4D56-A679-C508E1A9F9E0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE product_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2199,11 +2115,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE ProductLine STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{CB8F34BA-C7EF-4E82-AA13-9CF676804943}"
+          SQLTask:Connection="{6B5978DC-50EC-4D56-A679-C508E1A9F9E0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE ProductLine_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2216,11 +2132,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE TABLE supermarket_sales STAGE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{CB8F34BA-C7EF-4E82-AA13-9CF676804943}"
+          SQLTask:Connection="{6B5978DC-50EC-4D56-A679-C508E1A9F9E0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE supermarket_sales_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2233,11 +2149,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET city"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="update DATA_FLOW set LSET  = CET where TABLE_NAME = 'city'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2254,7 +2170,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="update DATA_FLOW set LSET  = CET where TABLE_NAME = 'product'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2267,11 +2183,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET ProductLine"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="update DATA_FLOW set LSET  = CET where TABLE_NAME = 'ProductLine'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2284,11 +2200,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="UPDATE LSET supermarket_sales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60D2C412-1F55-4055-B368-51EE71F6FB79}"
+          SQLTask:Connection="{506BFED8-6929-4EC9-A1FA-A6025932262E}"
           SQLTask:SqlStatementSource="update DATA_FLOW set LSET  = CET where TABLE_NAME = 'supermarket_sales'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2440,13 +2356,13 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           Id="Package\city SOURCE TO STAGE"
           TopLeft="1086.66122617801,353.949579521682" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="189.6,41.6"
           Id="Package\GET CET,LSET city"
-          TopLeft="1107.06938948676,249.949579612842" />
+          TopLeft="1082.9027241405,249.082912952202" />
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\GET CET,LSET product"
-          TopLeft="480.171428908986,247.764705665177" />
+          TopLeft="480.171428908986,246.898039004537" />
         <NodeLayout
           Size="205.6,41.6"
           Id="Package\GET CET,LSET ProductLine"
@@ -2565,14 +2481,14 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.694117565282"
+              EndConnector="0,50.827450904642"
               Start="0,0"
-              End="0,44.194117565282">
+              End="0,43.327450904642">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.194117565282" />
+                    End="0,43.327450904642" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2605,18 +2521,18 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
-          TopLeft="1182.84898126811,193.011764573164">
+          TopLeft="1180.36564859498,193.011764573164">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.9378150396772"
+              EndConnector="0,56.071148379038"
               Start="0,0"
-              End="0,49.4378150396772">
+              End="0,48.571148379038">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.4378150396772" />
+                    End="0,48.571148379038" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2649,18 +2565,18 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1]"
-          TopLeft="574.014286040439,289.364705665177">
+          TopLeft="574.014286040439,288.498039004537">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62.39999990884"
+              EndConnector="0,63.26666656948"
               Start="0,0"
-              End="0,54.89999990884">
+              End="0,55.76666656948">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.89999990884" />
+                    End="0,55.76666656948" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2693,18 +2609,18 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1 1 1]"
-          TopLeft="1182.06530783239,291.549579612842">
+          TopLeft="1179.58197515926,290.682912952202">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62.39999990884"
+              EndConnector="0,63.26666656948"
               Start="0,0"
-              End="0,54.89999990884">
+              End="0,55.76666656948">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.89999990884" />
+                    End="0,55.76666656948" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2880,16 +2796,16 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           Id="Package\city SOURCE TO STAGE\Update Date"
           TopLeft="250.000000532184,206.470588054315" />
         <NodeLayout
-          Size="137.6,41.6"
+          Size="160.8,41.6"
           Id="Package\city SOURCE TO STAGE\city SOURCE"
           TopLeft="244.571428904728,103.99999990884" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="132,41.6"
           Id="Package\city SOURCE TO STAGE\city STAGE"
-          TopLeft="259.999996125698,309.99999538064" />
+          TopLeft="251.999996244907,310.999995365739" />
         <EdgeLayout
           Id="Package\city SOURCE TO STAGE.Paths[Excel Source Output]"
-          TopLeft="316.085714718456,145.59999990884">
+          TopLeft="321.885714718456,145.59999990884">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2911,18 +2827,18 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\city SOURCE TO STAGE.Paths[Derived Column Output]"
-          TopLeft="321.799998328941,248.070588054315">
+          TopLeft="318.399998388546,248.070588054315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61.929407326325"
+              EndConnector="0,62.9294073114239"
               Start="0,0"
-              End="0,54.429407326325">
+              End="0,55.4294073114239">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.429407326325" />
+                    End="0,55.4294073114239" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3064,7 +2980,7 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
           Id="Package\ProductLine SOURCE TO STAGE\ProductLine SOURCE"
           TopLeft="233.571429068641,103.99999990884" />
         <NodeLayout
-          Size="168.8,41.6"
+          Size="180.8,41.6"
           Id="Package\ProductLine SOURCE TO STAGE\ProductLine STAGE"
           TopLeft="231.785714991998,330.062744859449" />
         <EdgeLayout
@@ -3091,18 +3007,18 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ProductLine SOURCE TO STAGE.Paths[Derived Column Output]"
-          TopLeft="317.492857762091,248.070588054315">
+          TopLeft="320.492857762091,248.070588054315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81.9921568051336"
+              EndConnector="0,81.992156805134"
               Start="0,0"
-              End="0,74.4921568051336">
+              End="0,74.492156805134">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.4921568051336" />
+                    End="0,74.492156805134" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3183,6 +3099,11 @@ WHERE DATE &gt;= ? AND DATE  &lt; ?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

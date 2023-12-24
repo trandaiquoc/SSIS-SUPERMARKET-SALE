@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="MainPakage"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E3511A5D-CDA6-4136-B309-6885F0676A8F}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{DC656F8D-AB51-4D16-9A6C-937EEA927934}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -100,6 +100,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="140,41.6"
+          Id="Package\NDS To DDS"
+          TopLeft="309.166649774546,282.066666118238" />
+        <NodeLayout
           Size="156,41.6"
           Id="Package\Source To Stage"
           TopLeft="301.666650184328,77.9999994575978" />
@@ -107,10 +111,6 @@
           Size="156,41.6"
           Id="Package\Stage To NDS"
           TopLeft="301.666650184328,179.599999457598" />
-        <NodeLayout
-          Size="140,41.6"
-          Id="Package\NDS To DDS"
-          TopLeft="309.166649774546,282.066666118238" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="379.666650184328,119.599999457598">
