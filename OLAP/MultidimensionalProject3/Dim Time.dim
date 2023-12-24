@@ -1,0 +1,335 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b4f41514-7c4f-453f-9ae6-83707235e454" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Time</ID>
+  <Name>Dim Time</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1946" scrolltop="-4762" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6932" y="12471" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900180380100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Dim_Time" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="2946" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b0000820b0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Dim_Time" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1946</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4762</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="98">
+            <Shape Id="Time ID" Expanded="false">
+              <Attributes>
+                <Attribute Id="Time ID" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Gio" Expanded="false">
+              <Attributes>
+                <Attribute Id="Gio" />
+              </Attributes>
+              <Position x="147" y="20" />
+            </Shape>
+            <Shape Id="Ngay" Expanded="false">
+              <Attributes>
+                <Attribute Id="Ngay" />
+              </Attributes>
+              <Position x="275" y="20" />
+            </Shape>
+            <Shape Id="Thang" Expanded="false">
+              <Attributes>
+                <Attribute Id="Thang" />
+              </Attributes>
+              <Position x="402" y="20" />
+            </Shape>
+            <Shape Id="Nam" Expanded="false">
+              <Attributes>
+                <Attribute Id="Nam" />
+              </Attributes>
+              <Position x="530" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="875ac27c-6b48-4aa0-8a11-cadae1772edb">
+    <DataSourceViewID>DDS</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="9a2fa070-18e8-488a-8da3-bd7b850f58a2">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="858ba3ea-dc33-4b16-b5b2-c573f0b36c8b">
+      <ID>Time ID</ID>
+      <Name>Time ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="38abedb2-dd0e-4f88-9208-ea18d71e08a2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="249ddbbc-2ca7-426c-ad23-aa7ce564b042">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>TimeID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="18a489d5-d7bc-4451-91df-8c99fadc4e40">
+          <AttributeID>Gio</AttributeID>
+          <Name>Gio</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1109f0f3-2c59-4477-8a83-43695ed9eaff">
+      <ID>Nam</ID>
+      <Name>Nam</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="24cc3194-71c5-4535-b573-da0afab99c01">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a81bb254-7afd-4289-97db-1abd41d7c92d">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Nam</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="aac54117-5574-4fc1-9bfb-9f1ec5051cd4">
+      <ID>Thang</ID>
+      <Name>Thang</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b87fb9f3-e391-47ee-93c7-9343fb77d8fc">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d4180b09-4334-4fc2-9bb8-fd6c5b8b4bfe">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Thang</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="59121164-8c86-4456-bf36-895836f7b24c">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4a0a1ec0-1d64-4455-8594-6b75df0bbb5f">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Nam</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e161213b-dadf-491d-92fe-906d2c2f9c24">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8f15404d-ffff-4509-8af5-f4d3f86a837f">
+          <TableID>dbo_Dim_Time</TableID>
+          <ColumnID>Thang</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="6096987e-dc51-4fdf-a160-2d6af12a82c8">
+          <AttributeID>Nam</AttributeID>
+          <Name>Nam</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ValueColumn dwd:design-time-name="f4aa7251-9ff3-47ea-ad81-5cc1e8dffabd">
+        <DataType>Integer</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b5adf6a9-f8da-4078-8dd3-5bccede1482c">
+          <TableID>dbo_Dim_Time</TableID>
+          <ColumnID>Thang</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8912f41f-1919-443d-9cae-010ef952d77e">
+      <ID>Ngay</ID>
+      <Name>Ngay</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e44e2363-8513-47e0-b357-f2853f2a0408">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e72cef88-a102-4ed9-bf05-6f432339db58">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Ngay</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="759d9a72-cc2d-4e3a-83bf-c6531f2f5d11">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c63b2fe7-4fde-4bc0-b60f-a242e5270332">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Thang</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="ad5270d4-48e0-4ac7-8fed-78e73e73f60b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b40dcd95-24ea-43bb-bdf4-af180489de64">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Nam</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="eb621788-6315-45f8-8a20-930491405dda">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3d0a34ab-10a4-4a95-b680-e5d4b96f8234">
+          <TableID>dbo_Dim_Time</TableID>
+          <ColumnID>Ngay</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="8cbaba8c-78ef-4b2a-bb7c-cabecca33d99">
+          <AttributeID>Thang</AttributeID>
+          <Name>Thang</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ValueColumn dwd:design-time-name="dd9b252d-1b1f-459f-937e-57746177ea64">
+        <DataType>Integer</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="61565c1d-9ab0-4495-b32d-4e5385087098">
+          <TableID>dbo_Dim_Time</TableID>
+          <ColumnID>Ngay</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b859ff19-6cd2-425f-83a9-ffc36e4dc605">
+      <ID>Gio</ID>
+      <Name>Gio</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0b611656-72a3-418d-b0d9-696616090224">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3a3ff89a-2fae-483a-bd30-2c8cb82a24ee">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Gio</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="8baeb305-99ec-4628-8121-ad2bcee0854a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8eb45aa3-e021-4ef7-8ca9-71c9fb180600">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Ngay</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="23aca548-4115-4dd7-b633-10314a5e715f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d2d44430-2f70-4575-bb40-adef8c674cd0">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Thang</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="a5eb254a-e690-4a5a-a4ad-fd2d6ad40bc9">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="98d8ad83-e4d8-4b53-919d-01386ed2660e">
+            <TableID>dbo_Dim_Time</TableID>
+            <ColumnID>Nam</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="be1ab952-c4fd-4a2e-a5cd-56b05105fad3">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5db5dc56-31b6-4a34-b57e-8692575bcd21">
+          <TableID>dbo_Dim_Time</TableID>
+          <ColumnID>Gio</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="a0c0e77c-3eeb-493d-9bab-2eddafcb733f">
+          <AttributeID>Ngay</AttributeID>
+          <Name>Ngay</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ValueColumn dwd:design-time-name="8fb11708-9c21-48af-9576-6deedcc1a06f">
+        <DataType>Integer</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="76debe2a-8a47-448a-bd96-2484d1ab8733">
+          <TableID>dbo_Dim_Time</TableID>
+          <ColumnID>Gio</ColumnID>
+        </Source>
+      </ValueColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="903ea35b-8680-4541-90fc-2691802ad631">
+      <ID>Hierarchy</ID>
+      <Name>Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="a6308a13-0479-4c18-b668-8e3d45826467">
+          <ID>Thang</ID>
+          <Name>Thang</Name>
+          <SourceAttributeID>Thang</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="52499e54-9798-436a-879d-8073fcc9eb6c">
+          <ID>Ngay</ID>
+          <Name>Ngay</Name>
+          <SourceAttributeID>Ngay</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d77a42d8-3e6f-41bc-a80c-0bef79717e49">
+          <ID>Nam</ID>
+          <Name>Nam</Name>
+          <SourceAttributeID>Nam</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="6b9e79db-700f-422a-bf49-93d8462a81ab">
+          <ID>Gio</ID>
+          <Name>Gio</Name>
+          <SourceAttributeID>Gio</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
